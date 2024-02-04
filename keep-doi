@@ -1,0 +1,169 @@
+# Importing necessary libraries
+import re
+import random
+from textblob import TextBlob
+
+# Defining the chatbot class
+class SimpleAIChatbot:
+    def __init__(self):
+        self.sentiments = {
+            'positive': [
+                "That's great to hear! How can I assist you further?",
+                "I'm glad you're feeling good! What else can I do for you?",
+                "Positive vibes! What's next on your mind?"
+            ],
+            'neutral': [
+                "I see. How can I help you with that?",
+                "Understood. Do you have any questions for me?",
+                "Got it. Anything else you'd like to talk about?"
+            ],
+            'negative': [
+                "I'm sorry to hear that. How can I make things better for you?",
+                "That sounds tough. Is there any way I can assist?",
+                "I wish things were better. What can I do to help?"
+            ]
+        }
+        self.patterns = {
+            'greeting': re.compile(r'\b(hi|hello|hey)\b', re.I),
+            'goodbye': re.compile(r'\b(bye|farewell)\b', re.I),
+            'thankyou': re.compile(r'\b(thank you|thanks)\b', re.I),
+        }
+        self.responses = {
+            'greeting': [
+                "Hello! How can I help you today?",
+                "Hi there! What can I do for you?",
+                "Hey! What's up?"
+            ],
+            'goodbye': [
+                "Goodbye! Have a great day!",
+                "Farewell! Looking forward to our next chat.",
+                "Bye! Don't hesitate to return if you have more questions."
+            ],
+            'thankyou': [
+                "You're welcome! Happy to help.",
+                "No problem at all!",
+                "It's my pleasure to assist!"
+            ],
+            'default': [
+                "Could you tell me more?",
+                "I'm not sure how to respond to that. Can you elaborate?",
+                "Interesting. Do you have any specific questions?"
+            ]
+        }
+
+    def analyze_sentiment(self, input_text):
+        analysis = TextBlob(input_text)
+        if analysis.sentiment.polarity > 0:
+            return 'positive'
+        elif analysis.sentiment.polarity == 0:
+            return 'neutral'
+        else:
+            return 'negative'
+
+    def match_pattern(self, input_text):
+        for intent, pattern in self.patterns.items():
+            if pattern.search(input_text):
+                return intent
+        return None
+
+    def respond(self, input_text):
+        # Check for greetings, goodbyes, etc.
+        intent = self.match_pattern(input_text)
+        if intent:
+            return random.choice(self.responses[intent])
+        
+        # Analyze sentiment of the input
+        sentiment = self.analyze_sentiment(input_text)
+        return random.choice(self.sentiments[sentiment])
+
+# Example usage
+chatbot = SimpleAIChatbot()
+responses = [
+    chatbot.respond("Hi there!"),
+    chatbot.respond("I had a bad day."),
+    chatbot.respond("Thank you for your help."),
+    chatbot.respond("Tell me more about your services."),
+]
+
+responses
+import random
+# Define a function to generate a random password
+def generate_password(length):
+Password = ''
+for i in range(length):
+Password += random.choice('23456789abcdefghjklmnopqrstuvwxyz')
+return Password
+# Define a function to check if a number is negative, positive, or zero
+def sign(n):
+if n > 0:
+return 'positive'
+elif n == 0:
+return 'zero'
+else:
+return 'negative'
+# Define a function to convert a decimal number to binary
+def decimal_to_binary(n):
+binary = ''
+while n > 0:
+binary = str(n % 2) + binary
+n //= 2
+return binary
+# Define a function to calculate the factorial of a number
+def factorial(n):
+if n == 0:
+return 1
+else:
+return n * factorial(n-1)
+# Define a function to calculate the Fibonacci sequence
+def fibonacci(n):
+if n == 0 or n == 1:
+return n
+else:
+return fibonacci(n-1)s + fibonacci(n-2)
+# Define a function to check if a number is a palindrome
+def is_palindrome(n):
+s = str(n)
+return s == s[::-1]
+# Define a function to calculate the sum of two numbers
+def add(a, b):
+return a + b
+# Define a function to calculate the product of two numbers
+def multiply(a, b):
+return a * b
+# Define a function to calculate the average of two numbers
+def average(a, b):
+return (a + b) / 2
+# Define a function to calculate the modulus of two numbers
+def modulus(a, b):
+return a % b
+# Define a function to calculate the square root of a number
+def square_root(n):
+return n ** 0.5
+# Define a function to calculate the cube root of a number
+def cube_root(n):
+return n ** 0.3333333333333334
+# Define a function to calculate the absolute value of a number
+def absolute(n):
+return abs(n)
+# Define a function to calculate the integer part of a number
+def integer(n):
+return int(n)
+# Define a function to calculate the fractional part of a number
+def fractional(n):
+return n - int(n)
+# Define a function to calculate the sin, cos, and tan of a number
+def trig(n):
+return math.sin(n), math.cos(n), math.tan(n)
+# Define a function to calculate the square of a number
+def square(n):
+return n ** 2
+# Define a function to calculate the cube of a number
+def cube(n):
+return n ** 3
+# Define a function to calculate the fourth power of a number
+def fourth_power(n):
+return n ** 4
+# Define a function to calculate the fifth power of a number
+def fifth_power(n):
+return n ** 5
+# Define a function to calculate the sixth power of a number
